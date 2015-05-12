@@ -1,0 +1,524 @@
+1
+00:00:00,000 --> 00:00:04,254
+[MUSIC]
+
+2
+00:00:04,254 --> 00:00:08,723
+[SOUND] The last major part of emberitic
+cover is models.
+
+3
+00:00:08,723 --> 00:00:13,397
+Models are used to handle data that should
+be saved permanently, either locally on
+
+4
+00:00:13,397 --> 00:00:18,610
+the browser or by making web requests to a
+server that saves the information.
+
+5
+00:00:18,610 --> 00:00:23,030
+We'll start off by using JavaScript
+objects that are saved in memory.
+
+6
+00:00:23,030 --> 00:00:26,560
+Then we'll switch to using Ember Data,
+which is a library for
+
+7
+00:00:26,560 --> 00:00:30,510
+robustly managing model data in Ember
+apps.
+
+8
+00:00:30,510 --> 00:00:35,390
+First we'll use Ember Data to save data in
+our browser's local storage.
+
+9
+00:00:35,390 --> 00:00:39,560
+Then we'll see how to switch it to use
+AJAX to save our data to a server.
+
+10
+00:00:41,470 --> 00:00:46,240
+We'll begin by using JavaScript objects
+that will be loaded into memory.
+
+11
+00:00:46,240 --> 00:00:48,740
+You'd never actually build an Ember app
+this way, but
+
+12
+00:00:48,740 --> 00:00:53,200
+it will keep things simple as we begin to
+explore what models can do for us.
+
+13
+00:00:53,200 --> 00:00:56,040
+To start we'll define some sample blog
+posts and
+
+14
+00:00:56,040 --> 00:01:03,080
+comments as JavaScript objects in a new
+file called store.js or data store.
+
+15
+00:01:03,080 --> 00:01:06,940
+You can see here we have an array of posts
+that contains
+
+16
+00:01:06,940 --> 00:01:12,200
+JavaScript objects with properties for id,
+title, and body.
+
+17
+00:01:13,940 --> 00:01:19,486
+Then we have an array for comments that
+contains JavaScript objects with an id,
+
+18
+00:01:19,486 --> 00:01:23,530
+a post id, and the comment text.
+
+19
+00:01:25,520 --> 00:01:30,996
+We'll add a script tag to our index.html
+to include the data in our app.
+
+20
+00:01:30,996 --> 00:01:34,484
+[BLANK_AUDIO]
+
+21
+00:01:34,484 --> 00:01:38,993
+Now, I want to switch our posts route from
+using the hardcoded post titles in
+
+22
+00:01:38,993 --> 00:01:41,882
+the template to using the post titles
+loaded from
+
+23
+00:01:41,882 --> 00:01:45,830
+the JavaScript objects we're going to use
+as models.
+
+24
+00:01:45,830 --> 00:01:50,104
+But first, let's revisit how the different
+pieces of Ember fit together.
+
+25
+00:01:50,104 --> 00:01:55,108
+[SOUND] Remember when you visit a URL
+Ember looks up the path from the router,
+
+26
+00:01:55,108 --> 00:02:00,926
+finds a match, and then loads a route that
+loads a template, controller, and model.
+
+27
+00:02:00,926 --> 00:02:03,077
+By default a route loads a template and
+
+28
+00:02:03,077 --> 00:02:06,480
+a controller with the same name as the
+route.
+
+29
+00:02:06,480 --> 00:02:11,460
+So the posts route loads the posts
+template and the posts controller.
+
+30
+00:02:11,460 --> 00:02:12,640
+But there's no default for
+
+31
+00:02:12,640 --> 00:02:17,220
+what model gets loaded, so we have to
+specify that ourselves.
+
+32
+00:02:17,220 --> 00:02:19,960
+Let's actually start off by writing a
+posts route that
+
+33
+00:02:19,960 --> 00:02:24,090
+explicitly loads the posts template and
+the posts controller.
+
+34
+00:02:24,090 --> 00:02:26,430
+Just so you can see what that looks like.
+
+35
+00:02:26,430 --> 00:02:31,220
+In our routes folder, we'll make a post.js
+file.
+
+36
+00:02:32,590 --> 00:02:35,679
+We'll add a script tag for it to our
+index.html.
+
+37
+00:02:35,679 --> 00:02:41,699
+[BLANK_AUDIO]
+
+38
+00:02:41,699 --> 00:02:43,874
+And then, in it,
+
+39
+00:02:43,874 --> 00:02:52,590
+we'll write Blogger.PostsRoute, quotes
+Ember.Route.extend.
+
+40
+00:02:52,590 --> 00:02:57,600
+This should look pretty familiar to you
+from writing controllers.
+
+41
+00:02:57,600 --> 00:03:01,450
+Here we take the app, the Ember app that
+we've created.
+
+42
+00:03:01,450 --> 00:03:04,890
+We save a name of the route capitalized.
+
+43
+00:03:04,890 --> 00:03:07,640
+And then we add the word Route onto the
+end.
+
+44
+00:03:07,640 --> 00:03:12,988
+We set that property equal to this object
+where we've taken Ember.
+
+45
+00:03:12,988 --> 00:03:16,890
+We've invoked the route property.
+
+46
+00:03:16,890 --> 00:03:22,601
+We've called the extend method to subclass
+the Ember.Route.
+
+47
+00:03:22,601 --> 00:03:28,160
+In here, we, we'll set the controller name
+to posts.
+
+48
+00:03:29,350 --> 00:03:31,045
+And we'll tell it to render the template.
+
+49
+00:03:31,045 --> 00:03:38,848
+[BLANK_AUDIO]
+
+50
+00:03:38,848 --> 00:03:42,010
+Again, this is the default behavior for a
+route.
+
+51
+00:03:42,010 --> 00:03:45,500
+To use a controller and template with the
+same name as the route.
+
+52
+00:03:45,500 --> 00:03:48,930
+But I wanna make sure you can see in code
+exactly what's happening when you
+
+53
+00:03:48,930 --> 00:03:50,330
+visit a URL.
+
+54
+00:03:50,330 --> 00:03:56,070
+As I mentioned before, Ember has a heavy
+emphasis on convention over configuration.
+
+55
+00:03:56,070 --> 00:03:59,360
+Ember chooses smart defaults for you, like
+using templates and
+
+56
+00:03:59,360 --> 00:04:02,420
+controllers with the same names as your
+routes.
+
+57
+00:04:02,420 --> 00:04:06,300
+And if you follow its conventions it will
+do a lot of work without requiring you to
+
+58
+00:04:06,300 --> 00:04:07,920
+write much code at all.
+
+59
+00:04:07,920 --> 00:04:09,785
+Now, let's add a model to this route.
+
+60
+00:04:09,785 --> 00:04:17,139
+[NOISE] Here our model simply returns
+
+61
+00:04:17,139 --> 00:04:26,707
+the posts array we created in our sample
+data.
+
+62
+00:04:26,707 --> 00:04:28,896
+By setting that array as the model for
+
+63
+00:04:28,896 --> 00:04:32,720
+this route it's now available in the
+controller and template.
+
+64
+00:04:32,720 --> 00:04:34,528
+Lets use the model in the template.
+
+65
+00:04:34,528 --> 00:04:44,528
+[BLANK_AUDIO]
+
+66
+00:04:47,345 --> 00:04:50,689
+The each helper loops over each element of
+the model,
+
+67
+00:04:50,689 --> 00:04:53,690
+which in this case is the array of posts.
+
+68
+00:04:53,690 --> 00:04:56,890
+For each post it repeats the content
+inside the helper.
+
+69
+00:04:58,280 --> 00:05:03,780
+Inside the helper the context gets changed
+so that attributes like title are called
+
+70
+00:05:03,780 --> 00:05:09,780
+on the current post inside of the each
+rather than on the controller itself.
+
+71
+00:05:09,780 --> 00:05:12,224
+Now, let's take a look at our work in the
+browser.
+
+72
+00:05:12,224 --> 00:05:19,624
+[BLANK_AUDIO]
+
+73
+00:05:19,624 --> 00:05:20,250
+There we go.
+
+74
+00:05:21,610 --> 00:05:23,480
+There are our post titles.
+
+75
+00:05:27,050 --> 00:05:31,140
+You might have noticed that even though we
+set controller name
+
+76
+00:05:31,140 --> 00:05:35,850
+to posts in our route we never actually
+made a posts controller.
+
+77
+00:05:37,210 --> 00:05:41,410
+If you don't create a controller of your
+own Ember implicitly creates one for
+
+78
+00:05:41,410 --> 00:05:46,430
+you, and you might remember from way back
+in the beginning of this course I told you
+
+79
+00:05:46,430 --> 00:05:50,660
+that a controller acts as a proxy between
+a model and a template.
+
+80
+00:05:50,660 --> 00:05:55,300
+The implicit controller is set up to do
+that proxying for you, automatically.
+
+81
+00:05:55,300 --> 00:05:59,810
+Templates never talk directly to models,
+they always go through the controller.
+
+82
+00:05:59,810 --> 00:06:01,900
+Before we do another example,
+
+83
+00:06:01,900 --> 00:06:05,690
+let's take out the explicit setting of the
+controller and template out of the route.
+
+84
+00:06:07,640 --> 00:06:09,720
+And if we go back here and refresh.
+
+85
+00:06:11,290 --> 00:06:13,930
+Sure enough, it works just as before.
+
+86
+00:06:13,930 --> 00:06:16,650
+Usually you won't need to override the
+default choice of
+
+87
+00:06:16,650 --> 00:06:18,930
+controller in template for a route.
+
+88
+00:06:18,930 --> 00:06:21,291
+But if you do, now you know how.
+
+89
+00:06:21,291 --> 00:06:25,040
+Let's run through another example of using
+an array as a model.
+
+90
+00:06:25,040 --> 00:06:29,700
+We'll make a recent comments route to show
+recent comments on the site.
+
+91
+00:06:29,700 --> 00:06:31,831
+First, we'll add an entry to the router.
+
+92
+00:06:31,831 --> 00:06:37,427
+[BLANK_AUDIO]
+
+93
+00:06:37,427 --> 00:06:39,252
+Next we'll make a route.
+
+94
+00:06:39,252 --> 00:06:43,540
+[BLANK_AUDIO]
+
+95
+00:06:43,540 --> 00:06:46,535
+And we'll add a script tag to our
+index.html.
+
+96
+00:06:46,535 --> 00:06:49,544
+[BLANK_AUDIO]
+
+97
+00:06:49,544 --> 00:06:50,853
+In the route.
+
+98
+00:06:50,853 --> 00:06:51,977
+We'll define it.
+
+99
+00:06:51,977 --> 00:07:01,364
+[BLANK_AUDIO]
+
+100
+00:07:01,364 --> 00:07:03,390
+Here we'll choose our model.
+
+101
+00:07:03,390 --> 00:07:05,770
+Let's simply return comments.
+
+102
+00:07:07,140 --> 00:07:10,490
+Which, if we go back to our store.
+
+103
+00:07:12,890 --> 00:07:15,240
+There's our array of comments.
+
+104
+00:07:15,240 --> 00:07:21,542
+Let's update our application template to
+include a link to our recent comments.
+
+105
+00:07:21,542 --> 00:07:29,733
+[BLANK_AUDIO]
+
+106
+00:07:29,733 --> 00:07:31,934
+And finally, we'll create our template.
+
+107
+00:07:31,934 --> 00:07:36,727
+[BLANK_AUDIO]
+
+108
+00:07:36,727 --> 00:07:42,199
+Before we forget, let's add it to our
+handlebar's template loader.
+
+109
+00:07:42,199 --> 00:07:50,299
+[BLANK_AUDIO]
+
+110
+00:07:50,299 --> 00:07:53,281
+And in the template, we'll display the
+recent comments.
+
+111
+00:07:53,281 --> 00:08:00,426
+[BLANK_AUDIO]
+
+112
+00:08:00,426 --> 00:08:04,730
+We'll display the text property of those
+comments.
+
+113
+00:08:04,730 --> 00:08:06,106
+Let's check it out in the browser now.
+
+114
+00:08:06,106 --> 00:08:15,952
+[SOUND]
+And there they are.
+

@@ -1,0 +1,433 @@
+1
+00:00:00,790 --> 00:00:04,720
+Most Ember apps interact with a backend
+server using Ajax,
+
+2
+00:00:04,720 --> 00:00:07,800
+rather than just purely using local
+storage.
+
+3
+00:00:07,800 --> 00:00:11,700
+For example, in a real blogging app, you'd
+wanna save your posts to
+
+4
+00:00:11,700 --> 00:00:15,650
+a server where all your blog readers could
+retrieve them.
+
+5
+00:00:15,650 --> 00:00:17,680
+You'd also wanna add authentication and
+
+6
+00:00:17,680 --> 00:00:23,390
+authorization, so only the blog owner
+could create, update and delete posts.
+
+7
+00:00:23,390 --> 00:00:26,500
+And you might want to require users to
+sign in before commenting.
+
+8
+00:00:27,730 --> 00:00:30,384
+Since this course is specifically about
+Ember and
+
+9
+00:00:30,384 --> 00:00:33,289
+not about building backend servers, I'm
+not going to
+
+10
+00:00:33,289 --> 00:00:37,580
+go into depth about how to build a backend
+server to use with Ember.
+
+11
+00:00:37,580 --> 00:00:42,200
+But I will show you easy how it is to use
+Ember with an already set up server.
+
+12
+00:00:43,400 --> 00:00:48,085
+If you don't know how to, I'd suggest
+exploring Ruby on Rails or Python and
+
+13
+00:00:48,085 --> 00:00:52,070
+Django to learn how to create a backend
+server yourself.
+
+14
+00:00:52,070 --> 00:00:55,750
+The rest of this video won't make much
+sense if you haven't built a web
+
+15
+00:00:55,750 --> 00:00:56,730
+server with a API yet.
+
+16
+00:00:58,890 --> 00:01:01,990
+By default, Ember Data assumes that it
+will store and
+
+17
+00:01:01,990 --> 00:01:06,250
+retrieve information through a backend
+server using Ajax.
+
+18
+00:01:06,250 --> 00:01:09,900
+It will assume that your server provides a
+JSON REST API.
+
+19
+00:01:10,950 --> 00:01:15,910
+Explaining the nuances of JSON and REST is
+outside the scope of this course.
+
+20
+00:01:15,910 --> 00:01:21,300
+But if you aren't familiar with them, just
+know that JSON is a standard format
+
+21
+00:01:21,300 --> 00:01:25,830
+in which data is represented in a similar
+way to JavaScript object.
+
+22
+00:01:25,830 --> 00:01:30,420
+And REST is a standard way of using HTTP
+verbs, like GET and
+
+23
+00:01:30,420 --> 00:01:33,380
+POST to represent what you want to do with
+your data.
+
+24
+00:01:34,610 --> 00:01:35,520
+For this video,
+
+25
+00:01:35,520 --> 00:01:39,680
+I'm going to download my project from
+WorkSpaces onto my local computer.
+
+26
+00:01:39,680 --> 00:01:44,628
+[SOUND] Like I mentioned in the first
+stage,
+
+27
+00:01:44,628 --> 00:01:49,586
+I'll need to use a web server to run my
+app.
+
+28
+00:01:49,586 --> 00:01:57,167
+[SOUND] So I'll copy Mongoose into
+
+29
+00:01:57,167 --> 00:02:03,671
+my App folder and open it up.
+
+30
+00:02:03,671 --> 00:02:07,906
+Now we have our app running locally and
+we're ready to get started working on it.
+
+31
+00:02:07,906 --> 00:02:12,577
+I'm going to open up our code in the
+Sublime Text editor for us to work on.
+
+32
+00:02:12,577 --> 00:02:14,682
+[BLANK_AUDIO]
+
+33
+00:02:14,682 --> 00:02:18,640
+Since the rest adapter is the default
+adapter for Ember Data.
+
+34
+00:02:18,640 --> 00:02:21,850
+To switch from the local storage adapter
+to the rest adapter.
+
+35
+00:02:21,850 --> 00:02:25,430
+We can simply open our index.html, and
+
+36
+00:02:25,430 --> 00:02:31,620
+remove the local storage adapter from the
+script tags, and store.js.
+
+37
+00:02:31,620 --> 00:02:35,090
+We'll save this, and refresh our app.
+
+38
+00:02:35,090 --> 00:02:39,200
+I'm gonna open up the JavaScript console,
+so we can see what happens as we go.
+
+39
+00:02:39,200 --> 00:02:40,850
+So we'll refresh the app.
+
+40
+00:02:40,850 --> 00:02:47,430
+Down here, you can see that it says get,
+I'm in the same
+
+41
+00:02:47,430 --> 00:02:52,890
+host and port that we're on and /posts 404
+Not found.
+
+42
+00:02:52,890 --> 00:02:56,352
+That's because the route for the homepage
+loads the model.
+
+43
+00:02:56,352 --> 00:03:04,821
+[SOUND] This.store.findpost which
+retrieves all of the posts.
+
+44
+00:03:04,821 --> 00:03:12,272
+In a rest API, retrieving all of the posts
+happens through a get request to /posts.
+
+45
+00:03:12,272 --> 00:03:15,133
+There's the /posts and there's the get.
+
+46
+00:03:15,133 --> 00:03:16,206
+And Ember data,
+
+47
+00:03:16,206 --> 00:03:21,273
+by default, makes the request to the same
+host import as the app is running on.
+
+48
+00:03:21,273 --> 00:03:28,347
+Here to 192.168.1.86 port 8080.
+
+49
+00:03:28,347 --> 00:03:31,510
+Now, we could load up our back end server
+app.
+
+50
+00:03:31,510 --> 00:03:34,900
+Let's say that it's running on local host
+3000.
+
+51
+00:03:34,900 --> 00:03:40,666
+And configure Ember data to make requests
+to local host 3,000 instead
+
+52
+00:03:40,666 --> 00:03:45,520
+of to 192.168.1.86 port 8080.
+
+53
+00:03:45,520 --> 00:03:48,280
+But browser security policies by
+
+54
+00:03:48,280 --> 00:03:52,410
+default prevent Ajax requests across
+domains and ports.
+
+55
+00:03:52,410 --> 00:03:57,160
+There are ways around this using cross
+origin resource sharing or cores.
+
+56
+00:03:57,160 --> 00:04:00,950
+But we'd have to configure cores, and it
+doesn't work on older browsers.
+
+57
+00:04:00,950 --> 00:04:06,850
+The easiest way is simply to have our
+backend app also serve up our Ember app.
+
+58
+00:04:06,850 --> 00:04:09,490
+I'm using Rails for my backend app.
+
+59
+00:04:09,490 --> 00:04:19,420
+And in Rails, I can simply copy the Ember
+app into the Public folder.
+
+60
+00:04:22,950 --> 00:04:25,540
+And it will be served up as static
+content.
+
+61
+00:04:25,540 --> 00:04:27,206
+If you're using a different backend app,
+
+62
+00:04:27,206 --> 00:04:29,020
+you'll have to move your files
+accordingly.
+
+63
+00:04:30,180 --> 00:04:32,447
+Now, I'll fire up my Rails server.
+
+64
+00:04:32,447 --> 00:04:37,583
+[SOUND] My Rails server runs
+
+65
+00:04:37,583 --> 00:04:43,655
+on 0.0.0.03000.
+
+66
+00:04:43,655 --> 00:04:46,970
+I'm gonna make it so that we can see both
+of these at the same time.
+
+67
+00:04:49,220 --> 00:04:54,070
+When I visit the homepage, since
+index.html is in my public folder.
+
+68
+00:04:54,070 --> 00:04:57,300
+It gets loaded up, and my Ember app is
+displayed.
+
+69
+00:04:57,300 --> 00:05:03,760
+After the Ember app loads and
+this.store.find post is run,
+
+70
+00:05:03,760 --> 00:05:09,340
+you can see that the Rails server has
+received a GET request for /posts.
+
+71
+00:05:09,340 --> 00:05:12,655
+Let's keep going through the app and see
+how it interacts with the backend.
+
+72
+00:05:12,655 --> 00:05:20,224
+[SOUND] When we save a new post, it makes
+a post request
+
+73
+00:05:20,224 --> 00:05:27,636
+to /posts to create the new record on the
+backend.
+
+74
+00:05:27,636 --> 00:05:31,298
+Then, when the app transitions us back to
+the post route,
+
+75
+00:05:31,298 --> 00:05:36,140
+it makes a get request to /posts again, to
+retrieve all of the posts.
+
+76
+00:05:36,140 --> 00:05:37,520
+And here's our post.
+
+77
+00:05:37,520 --> 00:05:40,280
+When we clicked to view it, we can see it
+here.
+
+78
+00:05:40,280 --> 00:05:43,732
+It doesn't trigger another request because
+this post has
+
+79
+00:05:43,732 --> 00:05:48,250
+already been loaded from get/posts, which
+loaded all of the posts.
+
+80
+00:05:48,250 --> 00:05:53,180
+But if we refresh the app so that all of
+the data is cleared from memory.
+
+81
+00:05:53,180 --> 00:05:56,150
+Now, we can see that it makes the get
+request to our
+
+82
+00:05:56,150 --> 00:05:58,890
+backend server to retrieve that post.
+
+83
+00:05:58,890 --> 00:06:02,530
+All of this is based on the conventions of
+a JSON REST API.
+
+84
+00:06:04,640 --> 00:06:06,890
+Ember Data makes it really easy for
+
+85
+00:06:06,890 --> 00:06:10,070
+your client-side app to interact with your
+backend.
+
+86
+00:06:10,070 --> 00:06:14,800
+If you build out a restful JSON API for
+your backend, you can never write
+
+87
+00:06:14,800 --> 00:06:20,210
+a single line of persistence code and just
+let Ember do all of the work.
+
+88
+00:06:20,210 --> 00:06:24,220
+And if you don't have control over your
+backend server, perhaps because it's
+
+89
+00:06:24,220 --> 00:06:29,380
+already built, or because another team on
+your project makes decisions about it.
+
+90
+00:06:29,380 --> 00:06:32,460
+There are ways to customize Ember data
+adapters, so
+
+91
+00:06:32,460 --> 00:06:36,360
+that you don't have to right the same Ajax
+calls over and over again.
+

@@ -1,0 +1,181 @@
+1
+00:00:00,460 --> 00:00:04,820
+Before we move on to controllers, l wanna
+clean up some of our code.
+
+2
+00:00:04,820 --> 00:00:09,390
+On every page, we're adding the same Nav
+bar over and over.
+
+3
+00:00:09,390 --> 00:00:13,420
+If we ever want to change that nav bar say
+by adding another link or
+
+4
+00:00:13,420 --> 00:00:15,540
+maybe a logo on one side.
+
+5
+00:00:15,540 --> 00:00:18,370
+We'd have to change it in several places.
+
+6
+00:00:18,370 --> 00:00:20,300
+That's not good code.
+
+7
+00:00:20,300 --> 00:00:21,350
+Here's how we fix that up.
+
+8
+00:00:22,400 --> 00:00:25,985
+Or make a template called application.hps.
+
+9
+00:00:25,985 --> 00:00:34,130
+[BLANK_AUDIO]
+
+10
+00:00:34,130 --> 00:00:41,090
+Add it, to our handle bars loader and then
+in it.
+
+11
+00:00:42,260 --> 00:00:46,239
+Let me close a couple of these to make
+things easier to read.
+
+12
+00:00:46,239 --> 00:00:51,462
+In it but all the stuff that's on every
+page.
+
+13
+00:00:51,462 --> 00:00:56,007
+[BLANK_AUDIO]
+
+14
+00:00:56,007 --> 00:01:01,922
+And then an outlet helper.
+
+15
+00:01:01,922 --> 00:01:07,209
+And then on each one of these templates
+I'm gonna remove all this extra code.
+
+16
+00:01:07,209 --> 00:01:17,209
+[BLANK_AUDIO]
+
+17
+00:01:24,120 --> 00:01:30,929
+Let's take a look.
+
+18
+00:01:30,929 --> 00:01:32,500
+Still seems to work just fine.
+
+19
+00:01:33,710 --> 00:01:37,840
+So if you have this application.hbs
+template
+
+20
+00:01:37,840 --> 00:01:41,040
+it's automatically loaded when your Ember
+app starts up.
+
+21
+00:01:41,040 --> 00:01:45,690
+And then every subsequent template is
+rendered into its outlet.
+
+22
+00:01:45,690 --> 00:01:51,400
+So now in all of our other templates we
+don't have to have the Nav bar or
+
+23
+00:01:51,400 --> 00:01:52,600
+the div class container.
+
+24
+00:01:54,790 --> 00:01:59,980
+So to recap, when you visit a URL, the
+router looks up the path and
+
+25
+00:01:59,980 --> 00:02:01,930
+matches it to a route.
+
+26
+00:02:01,930 --> 00:02:05,380
+The route loads a template with the same
+name.
+
+27
+00:02:05,380 --> 00:02:08,810
+If the route is nested, the parent route
+is loaded and
+
+28
+00:02:08,810 --> 00:02:12,190
+the child route is loaded into the outlet
+helper of the parent.
+
+29
+00:02:13,230 --> 00:02:18,890
+There's also an implicit application route
+that all other routes are loaded into.
+
+30
+00:02:18,890 --> 00:02:23,860
+If you create an application .hbs template
+with an outlet helper all other
+
+31
+00:02:23,860 --> 00:02:26,840
+templates will automatically get rendered
+into that outlet.
+
+32
+00:02:28,830 --> 00:02:31,120
+One thing you should get comfortable with
+in Ember,
+
+33
+00:02:31,120 --> 00:02:34,520
+is the idea of convention over
+configuration.
+
+34
+00:02:34,520 --> 00:02:38,500
+There's a lot of seemingly magical things
+that Ember does for you.
+
+35
+00:02:38,500 --> 00:02:42,430
+Such as creating this implicit application
+route.
+
+36
+00:02:42,430 --> 00:02:46,920
+These features are designed to let you
+implement common patterns in your app.
+
+37
+00:02:46,920 --> 00:02:48,910
+Often without writing any code at all.
+
+38
+00:02:49,910 --> 00:02:53,890
+An important part of becoming an Ember
+developer, is embracing convention over
+
+39
+00:02:53,890 --> 00:02:58,470
+configuration and following the path that
+the Ember authors have laid out for you.
+

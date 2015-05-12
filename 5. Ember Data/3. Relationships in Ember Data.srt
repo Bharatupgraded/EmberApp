@@ -1,0 +1,454 @@
+1
+00:00:00,530 --> 00:00:03,170
+We haven't done much with our comments
+yet.
+
+2
+00:00:03,170 --> 00:00:06,280
+I'd like a way to add a new comment to a
+blog post and
+
+3
+00:00:06,280 --> 00:00:09,890
+to display all of the comments for posts
+below the body.
+
+4
+00:00:11,130 --> 00:00:12,930
+Here's how it looks on the finished app.
+
+5
+00:00:15,300 --> 00:00:19,263
+To define a relationship like this in
+Ember, we'll update our models.
+
+6
+00:00:19,263 --> 00:00:24,764
+[BLANK_AUDIO]
+
+7
+00:00:24,764 --> 00:00:30,957
+Here this line sets up
+
+8
+00:00:30,957 --> 00:00:38,450
+a property on each instance of post called
+comments.
+
+9
+00:00:38,450 --> 00:00:41,515
+That returns all of the comments with that
+posts ID.
+
+10
+00:00:41,515 --> 00:00:45,960
+ds.hasMany is an embered data method and
+
+11
+00:00:45,960 --> 00:00:49,080
+it makes the relationship with the comment
+model.
+
+12
+00:00:49,080 --> 00:00:52,790
+Don't worry too much about the async
+truebit here.
+
+13
+00:00:52,790 --> 00:00:57,250
+It's something that's going to become the
+default by embered data 1.0 in
+
+14
+00:00:57,250 --> 00:00:58,700
+all likelihood.
+
+15
+00:00:58,700 --> 00:01:02,160
+Just know that you always need to include
+it when you're defining a relationship
+
+16
+00:01:02,160 --> 00:01:04,550
+with the local storage adapter.
+
+17
+00:01:04,550 --> 00:01:09,400
+So, now post has a property called
+comments that returns all of
+
+18
+00:01:09,400 --> 00:01:11,510
+the comments for that post.
+
+19
+00:01:11,510 --> 00:01:14,020
+We can also setup the other side of the
+relationship.
+
+20
+00:01:16,660 --> 00:01:18,620
+We can make a post property.
+
+21
+00:01:20,480 --> 00:01:25,149
+This value is DS.belongsTo.
+
+22
+00:01:25,149 --> 00:01:29,870
+[SOUND] And now if you take a comment
+object and
+
+23
+00:01:29,870 --> 00:01:34,974
+access the post property it will return
+the post
+
+24
+00:01:34,974 --> 00:01:40,473
+whose ID matches the post ID stored in the
+comment.
+
+25
+00:01:40,473 --> 00:01:45,666
+With our models set up let's update our
+post.hps handle bars template to
+
+26
+00:01:45,666 --> 00:01:48,029
+use this new comments property.
+
+27
+00:01:48,029 --> 00:01:55,670
+[BLANK_AUDIO]
+
+28
+00:01:55,670 --> 00:01:59,971
+[SOUND]
+
+29
+00:01:59,971 --> 00:02:06,287
+Here we're using the each handlebars
+helper again, but this time we
+
+30
+00:02:06,287 --> 00:02:11,841
+don't wanna loop through the model itself,
+but rather a property on the model.
+
+31
+00:02:11,841 --> 00:02:13,510
+All of the comments.
+
+32
+00:02:13,510 --> 00:02:17,570
+So we explicitly say the property name
+that we want to loop through.
+
+33
+00:02:17,570 --> 00:02:18,140
+Now for
+
+34
+00:02:18,140 --> 00:02:24,440
+each comment we'll display a paragraph
+with the text property of that comment.
+
+35
+00:02:24,440 --> 00:02:28,810
+Of course we don't have any comments yet
+and we'll need a page for adding them.
+
+36
+00:02:28,810 --> 00:02:30,320
+We'll start with a router entry.
+
+37
+00:02:32,660 --> 00:02:37,950
+I want to display this on a post page so
+I'm gonna make this a nested route.
+
+38
+00:02:40,745 --> 00:02:48,236
+[SOUND] Now, let's add a link to the post
+template.
+
+39
+00:02:48,236 --> 00:02:56,681
+[BLANK_AUDIO]
+
+40
+00:02:56,681 --> 00:02:59,985
+So, we're linking to the new comment
+route.
+
+41
+00:02:59,985 --> 00:03:03,808
+But, because it's nested inside here we
+need to provide a value for
+
+42
+00:03:03,808 --> 00:03:05,800
+the dynamic segment.
+
+43
+00:03:05,800 --> 00:03:08,380
+You do that by passing in this.
+
+44
+00:03:08,380 --> 00:03:11,890
+Which refers to the model for the route
+that we're currently on.
+
+45
+00:03:11,890 --> 00:03:13,790
+And then we'll extract the ID.
+
+46
+00:03:16,460 --> 00:03:18,220
+We'll add a little bit of styling.
+
+47
+00:03:23,620 --> 00:03:25,580
+Now when that link is clicked,
+
+48
+00:03:25,580 --> 00:03:29,180
+I want the new comment box to show up on
+the bottom of the page.
+
+49
+00:03:29,180 --> 00:03:30,540
+So, I'm gonna add an outlet there.
+
+50
+00:03:32,000 --> 00:03:35,427
+Now, we'll need a template for the
+new-comment route.
+
+51
+00:03:35,427 --> 00:03:40,234
+[BLANK_AUDIO]
+
+52
+00:03:40,234 --> 00:03:42,938
+We need to load this from our index.html.
+
+53
+00:03:42,938 --> 00:03:50,540
+[BLANK_AUDIO]
+
+54
+00:03:50,540 --> 00:03:54,125
+Let's make this a subheading since it's
+gonna be displayed within that
+
+55
+00:03:54,125 --> 00:03:54,837
+other route.
+
+56
+00:03:54,837 --> 00:03:57,617
+[BLANK_AUDIO]
+
+57
+00:03:57,617 --> 00:03:59,615
+And we'll make a form for the new comment.
+
+58
+00:03:59,615 --> 00:04:09,931
+[BLANK_AUDIO]
+
+59
+00:04:09,931 --> 00:04:12,360
+And we use the text area Handlebars
+helper.
+
+60
+00:04:14,570 --> 00:04:16,520
+Bind it to the text property.
+
+61
+00:04:25,290 --> 00:04:30,930
+And add a submit button, and action his
+name is save.
+
+62
+00:04:34,000 --> 00:04:37,650
+And then we'll need a controller to handle
+the save action.
+
+63
+00:04:42,630 --> 00:04:43,886
+Run a script tag for it.
+
+64
+00:04:43,886 --> 00:04:53,886
+[BLANK_AUDIO]
+
+65
+00:04:57,211 --> 00:05:00,038
+Define that save action.
+
+66
+00:05:00,038 --> 00:05:07,649
+[BLANK_AUDIO]
+
+67
+00:05:07,649 --> 00:05:15,892
+Create a record for the comment.
+
+68
+00:05:15,892 --> 00:05:22,480
+The text will be the value of the text
+property on the controller.
+
+69
+00:05:22,480 --> 00:05:24,350
+Then we'll save the comment.
+
+70
+00:05:25,510 --> 00:05:28,240
+But now we've run into a new problem.
+
+71
+00:05:28,240 --> 00:05:31,750
+Our new comment route is nested within the
+post route and
+
+72
+00:05:31,750 --> 00:05:34,850
+we want to associate the comment with post
+we are looking at.
+
+73
+00:05:34,850 --> 00:05:37,320
+But how do we get access to the post?
+
+74
+00:05:37,320 --> 00:05:40,990
+How can we find out what this post ID is?
+
+75
+00:05:40,990 --> 00:05:44,990
+When you need to access information in one
+controller from another.
+
+76
+00:05:44,990 --> 00:05:48,460
+Ember provides a simple hook called needs.
+
+77
+00:05:48,460 --> 00:05:53,120
+In the needs hook you simple list any
+controllers you need access to.
+
+78
+00:05:53,120 --> 00:05:55,380
+Here we've said we need the post
+controller.
+
+79
+00:05:56,420 --> 00:05:59,565
+Now we'll move down and make use of this.
+
+80
+00:05:59,565 --> 00:06:06,473
+[SOUND] Thanks to the needs, we can get
+the controller's property of the current
+
+81
+00:06:06,473 --> 00:06:12,673
+controller, and then get the post
+controller and ask it for its model.
+
+82
+00:06:12,673 --> 00:06:14,880
+Next we'll make the association.
+
+83
+00:06:17,010 --> 00:06:19,190
+We'll ask the post for its comments.
+
+84
+00:06:20,280 --> 00:06:25,460
+And we'll call the pushObject method, and
+pass in the comment that we just created.
+
+85
+00:06:25,460 --> 00:06:28,390
+And then we'll save the post.
+
+86
+00:06:30,230 --> 00:06:34,520
+And that's how you create an association
+between two models in Ember.
+
+87
+00:06:35,790 --> 00:06:38,700
+Finally, we'll transition to,
+
+88
+00:06:38,700 --> 00:06:44,770
+the post's route for the post that we just
+commented on.
+
+89
+00:06:44,770 --> 00:06:46,900
+Let's make sure this works in the browser
+now.
+
+90
+00:06:46,900 --> 00:06:49,920
+[BLANK_AUDIO]
+
+91
+00:06:49,920 --> 00:06:52,213
+Let's open our Java Script console.
+
+92
+00:06:52,213 --> 00:06:56,391
+Looks like we have a syntax error in
+post.js line four and
+
+93
+00:06:56,391 --> 00:06:58,316
+comment.js line three.
+
+94
+00:06:58,316 --> 00:07:03,740
+So here in comment.js I've put a semicolon
+where there shouldn't be one.
+
+95
+00:07:04,860 --> 00:07:06,780
+Probably did the same in post.
+
+96
+00:07:06,780 --> 00:07:07,280
+Yep.
+
+97
+00:07:08,600 --> 00:07:10,290
+That made it so our models couldn't load.
+
+98
+00:07:11,470 --> 00:07:12,320
+Let's refresh.
+
+99
+00:07:15,900 --> 00:07:17,507
+And now let's add a comment.
+
+100
+00:07:17,507 --> 00:07:21,886
+[BLANK_AUDIO]
+
+101
+00:07:21,886 --> 00:07:22,915
+And there it is.
+
+102
+00:07:22,915 --> 00:07:24,909
+[BLANK_AUDIO]
+

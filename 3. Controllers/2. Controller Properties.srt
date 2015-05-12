@@ -1,0 +1,430 @@
+1
+00:00:00,170 --> 00:00:01,940
+Popping up messages is all well and
+
+2
+00:00:01,940 --> 00:00:06,310
+good, but the real power of Ember is in
+creating rich user interfaces.
+
+3
+00:00:06,310 --> 00:00:09,390
+As a step in this direction, let's add
+actions that show and
+
+4
+00:00:09,390 --> 00:00:13,055
+hide a picture of Dracula on the About
+page, like this.
+
+5
+00:00:13,055 --> 00:00:19,077
+[SOUND] We'll start by defining a property
+on the controller.
+
+6
+00:00:19,077 --> 00:00:26,857
+[SOUND] Then in our template we can use
+this property.
+
+7
+00:00:26,857 --> 00:00:29,235
+[SOUND] So
+
+8
+00:00:29,235 --> 00:00:37,049
+if the picture is showing,
+
+9
+00:00:37,049 --> 00:00:43,844
+that property is true,
+
+10
+00:00:43,844 --> 00:00:52,355
+then we'll show that image.
+
+11
+00:00:52,355 --> 00:00:54,682
+Otherwise, we'll show a button.
+
+12
+00:00:54,682 --> 00:01:03,900
+[SOUND] And that button will have an
+action to show the picture.
+
+13
+00:01:03,900 --> 00:01:10,634
+[SOUND] Since, isPictureShowing,
+
+14
+00:01:10,634 --> 00:01:17,147
+is set to false in the controller.
+
+15
+00:01:17,147 --> 00:01:25,362
+[SOUND] The else branch in the template
+will be shown.
+
+16
+00:01:25,362 --> 00:01:28,700
+Now, let's make our show picture action.
+
+17
+00:01:28,700 --> 00:01:31,103
+And make it so it will change the property
+to true.
+
+18
+00:01:31,103 --> 00:01:34,866
+[SOUND] Changing a property on
+
+19
+00:01:34,866 --> 00:01:41,294
+a controller is as simple as running
+this.set,
+
+20
+00:01:41,294 --> 00:01:45,997
+the property's name as a string and
+
+21
+00:01:45,997 --> 00:01:53,391
+then the new value that you'd like the
+property set to.
+
+22
+00:01:53,391 --> 00:01:59,173
+It's important in Ember never to access
+properties directly on an object
+
+23
+00:01:59,173 --> 00:02:04,980
+such as by writing something like
+this.isPictureShowing equals true.
+
+24
+00:02:04,980 --> 00:02:06,100
+Don't do that.
+
+25
+00:02:06,100 --> 00:02:10,070
+Embers ability to observe changes and
+automatically update them throughout your
+
+26
+00:02:10,070 --> 00:02:13,727
+application depends on using the .set
+method.
+
+27
+00:02:14,840 --> 00:02:16,410
+Now if we go to our browser.
+
+28
+00:02:17,530 --> 00:02:18,980
+We can refresh the page.
+
+29
+00:02:21,170 --> 00:02:22,860
+Go to about.
+
+30
+00:02:22,860 --> 00:02:24,090
+Once again, we have that error.
+
+31
+00:02:24,090 --> 00:02:26,990
+Nothing hindered the action, show picture.
+
+32
+00:02:26,990 --> 00:02:28,100
+Let's see what we did wrong.
+
+33
+00:02:31,930 --> 00:02:37,560
+Notice this other error up here,
+unexpected token in about js line ten.
+
+34
+00:02:37,560 --> 00:02:40,460
+It means I made a syntax error.
+
+35
+00:02:40,460 --> 00:02:44,273
+Sure enough, we can see I opened this
+curly brace but I didn't close it.
+
+36
+00:02:44,273 --> 00:02:51,092
+[SOUND] If I add that closing curly brace
+[SOUND] and refresh.
+
+37
+00:02:51,092 --> 00:02:54,610
+Now, let's look at the picture.
+
+38
+00:02:54,610 --> 00:02:55,130
+There we go.
+
+39
+00:02:56,300 --> 00:02:56,950
+What a scary guy.
+
+40
+00:03:00,030 --> 00:03:04,610
+This approach to updating the page is one
+of the fundamental differences between
+
+41
+00:03:04,610 --> 00:03:09,470
+building a user interface in Ember and
+using something like jQuery.
+
+42
+00:03:09,470 --> 00:03:12,540
+With jQuery you describe the steps needed
+to
+
+43
+00:03:12,540 --> 00:03:16,090
+take the user interface from one state to
+another.
+
+44
+00:03:16,090 --> 00:03:21,220
+To build this feature, we'd need to say to
+show one of the elements of the dom, and
+
+45
+00:03:21,220 --> 00:03:22,010
+to hide another.
+
+46
+00:03:23,080 --> 00:03:28,430
+With Ember, you describe how your user
+interface should look in various states.
+
+47
+00:03:28,430 --> 00:03:31,780
+And let Ember take care of making the user
+interface look that way.
+
+48
+00:03:32,860 --> 00:03:35,927
+Let's add another button to the page to
+hide the photo.
+
+49
+00:03:35,927 --> 00:03:45,927
+[BLANK_AUDIO]
+
+50
+00:03:50,152 --> 00:03:54,774
+And then in our controller we'll define
+this hide picture action.
+
+51
+00:03:54,774 --> 00:04:04,774
+[BLANK_AUDIO]
+
+52
+00:04:05,863 --> 00:04:11,979
+And when we refresh our page, we can see
+the photo and we can hide it.
+
+53
+00:04:11,979 --> 00:04:17,229
+[SOUND] Let's add a similar feature in our
+contact page.
+
+54
+00:04:17,229 --> 00:04:23,952
+[SOUND] If the message has already
+
+55
+00:04:23,952 --> 00:04:30,677
+been sent we'll say thank you.
+
+56
+00:04:30,677 --> 00:04:35,480
+Your message has been sent.
+
+57
+00:04:35,480 --> 00:04:36,989
+If the message hasn't been sent.
+
+58
+00:04:36,989 --> 00:04:40,584
+[BLANK_AUDIO]
+
+59
+00:04:40,584 --> 00:04:43,900
+Then we'll give them the option to send
+the message.
+
+60
+00:04:43,900 --> 00:04:48,428
+In our contact controller we'll make a
+property for
+
+61
+00:04:48,428 --> 00:04:54,120
+messageSent, set it to false by default.
+
+62
+00:04:54,120 --> 00:05:02,720
+And then once the message gets sent, we'll
+switch the messageSent property to true.
+
+63
+00:05:02,720 --> 00:05:06,001
+[SOUND] And then let's take a look.
+
+64
+00:05:06,001 --> 00:05:07,019
+Make sure that works.
+
+65
+00:05:07,019 --> 00:05:13,856
+[BLANK_AUDIO]
+
+66
+00:05:13,856 --> 00:05:15,040
+There we go.
+
+67
+00:05:15,040 --> 00:05:16,530
+Sure enough.
+
+68
+00:05:16,530 --> 00:05:18,550
+Let's take this a step further and
+
+69
+00:05:18,550 --> 00:05:22,060
+print out a random confirmation number
+after the message gets sent.
+
+70
+00:05:23,410 --> 00:05:25,930
+First go back to our template.
+
+71
+00:05:27,690 --> 00:05:28,333
+And we'll add-
+
+72
+00:05:28,333 --> 00:05:34,173
+[BLANK_AUDIO]
+
+73
+00:05:34,173 --> 00:05:38,020
+Now we need to set that confirmation
+number in a controller action.
+
+74
+00:05:39,390 --> 00:05:40,470
+And we'll put it right here.
+
+75
+00:05:40,470 --> 00:05:44,274
+[BLANK_AUDIO]
+
+76
+00:05:44,274 --> 00:05:47,060
+And we'll make it equal to a random
+number.
+
+77
+00:05:48,150 --> 00:05:51,590
+Here you can see that a controller
+property can actually get displayed on
+
+78
+00:05:51,590 --> 00:05:52,760
+the page.
+
+79
+00:05:52,760 --> 00:05:56,470
+Setting or updating it is as easy as using
+this .set.
+
+80
+00:05:56,470 --> 00:05:59,010
+Just like with any other controller
+property.
+
+81
+00:05:59,010 --> 00:06:01,810
+In a real app, of course, the confirmation
+number would
+
+82
+00:06:01,810 --> 00:06:05,250
+probably be returned from a server where
+the message was sent to.
+
+83
+00:06:05,250 --> 00:06:09,750
+We'll learn more about working with
+servers when we start working with models.
+
+84
+00:06:09,750 --> 00:06:11,754
+For now, let's check out our feature.
+
+85
+00:06:11,754 --> 00:06:18,256
+[BLANK_AUDIO]
+
+86
+00:06:18,256 --> 00:06:19,820
+There's our confirmation number.
+
+87
+00:06:21,430 --> 00:06:23,900
+That just about wraps it up for
+controllers.
+
+88
+00:06:23,900 --> 00:06:28,090
+To recap, the job of a controller is to
+handle the display logic of
+
+89
+00:06:28,090 --> 00:06:29,530
+your application.
+
+90
+00:06:29,530 --> 00:06:32,280
+It provides two tools to help out with
+this.
+
+91
+00:06:32,280 --> 00:06:34,528
+[SOUND] Properties, and actions.
+
+92
+00:06:34,528 --> 00:06:38,615
+Actions define some sort of behavior such
+as opening a pop-up or
+
+93
+00:06:38,615 --> 00:06:41,040
+changing a property.
+
+94
+00:06:41,040 --> 00:06:43,912
+[SOUND] Properties can be displayed
+directly on the page.
+
+95
+00:06:43,912 --> 00:06:47,163
+Or it can be used to determine
+conditionals about what part of
+
+96
+00:06:47,163 --> 00:06:48,640
+the template is rendered.
+

@@ -1,0 +1,461 @@
+1
+00:00:00,000 --> 00:00:04,834
+[MUSIC]
+
+2
+00:00:04,834 --> 00:00:07,827
+Up until now, all of our data has been
+retrieved from
+
+3
+00:00:07,827 --> 00:00:11,690
+pre-built JavaScript objects loaded into
+memory.
+
+4
+00:00:11,690 --> 00:00:15,150
+Most real apps need a more flexible data
+store, where they can save and
+
+5
+00:00:15,150 --> 00:00:16,328
+retrieve information.
+
+6
+00:00:16,328 --> 00:00:22,075
+Usually, either client-side, using the
+local storage HTML5 feature,
+
+7
+00:00:22,075 --> 00:00:24,520
+or server-side, using Ajax.
+
+8
+00:00:24,520 --> 00:00:27,580
+For both of these scenarios and many
+others, Ember has
+
+9
+00:00:27,580 --> 00:00:31,420
+a library called Ember Data that makes it
+much more pleasant to work with your
+
+10
+00:00:31,420 --> 00:00:36,640
+data by simplifying complex interactions
+and automating repetitive tasks.
+
+11
+00:00:36,640 --> 00:00:39,510
+If you're using Workspaces, I've already
+downloaded and
+
+12
+00:00:39,510 --> 00:00:42,030
+set up the following tools for you.
+
+13
+00:00:42,030 --> 00:00:47,434
+If not, you can down download ember data
+from emberjs.com.
+
+14
+00:00:47,434 --> 00:00:50,180
+Click Builds.
+
+15
+00:00:50,180 --> 00:00:51,720
+And then tagged Releases.
+
+16
+00:00:54,640 --> 00:01:02,010
+And scroll all the way to the bottom and
+find the link for tags/v1.0.0 beta 10.
+
+17
+00:01:02,010 --> 00:01:04,860
+And here it is.
+
+18
+00:01:04,860 --> 00:01:08,610
+And then save this file to your computer.
+
+19
+00:01:09,710 --> 00:01:13,720
+Because Ember data is still in beta, some
+things might change slightly if you're
+
+20
+00:01:13,720 --> 00:01:16,590
+watching this video a while after I make
+it.
+
+21
+00:01:16,590 --> 00:01:20,010
+So, I'd suggest you stick with the exact
+same version I'm using.
+
+22
+00:01:20,010 --> 00:01:22,020
+At least until you get through these
+lessons and
+
+23
+00:01:22,020 --> 00:01:25,050
+are more comfortable figuring out what may
+have changed.
+
+24
+00:01:25,050 --> 00:01:29,310
+For most of these lessons, we'll use Ember
+data to just save information locally on
+
+25
+00:01:29,310 --> 00:01:31,810
+our browser using local storage.
+
+26
+00:01:31,810 --> 00:01:35,070
+And so we'll need to get a local storage
+adapter to use with Ember data.
+
+27
+00:01:36,890 --> 00:01:39,470
+From the link in the teacher's notes,
+
+28
+00:01:39,470 --> 00:01:44,170
+scroll down, click the local storage
+adapter.js file.
+
+29
+00:01:45,520 --> 00:01:49,690
+Then raw and then save it to your
+computer,
+
+30
+00:01:49,690 --> 00:01:52,210
+just like I've done here in the workspace.
+
+31
+00:01:52,210 --> 00:01:56,090
+Move both libraries into your apps lib
+folder.
+
+32
+00:01:56,090 --> 00:01:59,440
+Ember data and the local storage adapter.
+
+33
+00:01:59,440 --> 00:02:03,660
+And add script tags for them in your
+index.html.
+
+34
+00:02:03,660 --> 00:02:06,260
+Now, let's go into our store.js file.
+
+35
+00:02:07,770 --> 00:02:09,550
+Delete everything in it.
+
+36
+00:02:09,550 --> 00:02:11,000
+And we'll replace it with this code.
+
+37
+00:02:12,760 --> 00:02:18,667
+This simply sets up ember to use Ember
+data with the local storage adapter.
+
+38
+00:02:18,667 --> 00:02:26,326
+[SOUND] Once again, blogger refers to our
+Ember app.
+
+39
+00:02:26,326 --> 00:02:28,352
+And now we have something new.
+
+40
+00:02:28,352 --> 00:02:32,270
+DS, which stands for data store which is
+how we call Ember data.
+
+41
+00:02:34,490 --> 00:02:36,400
+Now, let's go through our program and
+
+42
+00:02:36,400 --> 00:02:40,730
+update our code to use ember data instead
+of plain old JavaScript objects.
+
+43
+00:02:42,018 --> 00:02:45,570
+First, unlike with plain old Java script
+objects,
+
+44
+00:02:45,570 --> 00:02:49,040
+we need to define our models to specify
+what properties they will have.
+
+45
+00:02:50,120 --> 00:02:53,630
+Here in our models folder, is where we'll
+do that.
+
+46
+00:02:53,630 --> 00:02:58,380
+We'll start with a file called post.js.
+
+47
+00:02:58,380 --> 00:03:01,830
+We always use a singular word for our
+model names in Ember data.
+
+48
+00:03:01,830 --> 00:03:04,720
+We will add a script data for this.
+
+49
+00:03:04,720 --> 00:03:12,194
+[BLANK_AUDIO]
+
+50
+00:03:12,194 --> 00:03:20,730
+In here, we'll write blogger.post for the
+model name equals DS.model.extend.
+
+51
+00:03:22,190 --> 00:03:23,690
+This creates an Ember data model.
+
+52
+00:03:24,750 --> 00:03:28,170
+And then we'll specify the properties of
+this new class.
+
+53
+00:03:28,170 --> 00:03:32,590
+It has a title and it has a body.
+
+54
+00:03:34,670 --> 00:03:37,030
+So to specify the properties of our model,
+
+55
+00:03:37,030 --> 00:03:43,210
+we pass in an object whose properties are
+the properties of the new class.
+
+56
+00:03:43,210 --> 00:03:48,320
+The values are always DS.attr.
+
+57
+00:03:48,320 --> 00:03:50,910
+Let's make another model for our comments.
+
+58
+00:03:50,910 --> 00:03:54,558
+We'll create a file called comment.js.
+
+59
+00:03:54,558 --> 00:04:00,480
+[SOUND] Add a script tag.
+
+60
+00:04:00,480 --> 00:04:08,284
+[SOUND] And then we'll define the model.
+
+61
+00:04:08,284 --> 00:04:13,123
+[SOUND]
+
+62
+00:04:13,123 --> 00:04:22,802
+Very easy.
+
+63
+00:04:22,802 --> 00:04:27,700
+Note that for both models we didn't
+include the ID property.
+
+64
+00:04:27,700 --> 00:04:29,440
+Ember data automatically sets it.
+
+65
+00:04:30,830 --> 00:04:34,050
+Now, let's update our app to use these
+models.
+
+66
+00:04:34,050 --> 00:04:36,762
+We'll start with the model we return in
+the posts route.
+
+67
+00:04:36,762 --> 00:04:43,040
+This .store returns
+
+68
+00:04:43,040 --> 00:04:47,810
+the data store which is Ember data's way
+of referring to where we save things.
+
+69
+00:04:49,030 --> 00:04:53,520
+Then we call the find method and pass in
+the name of the model as a string.
+
+70
+00:04:55,350 --> 00:04:59,230
+This will return every instance of the
+post model.
+
+71
+00:04:59,230 --> 00:05:01,110
+Let's refresh our app and see if it's
+working.
+
+72
+00:05:05,030 --> 00:05:07,200
+Check our JavaScript console for errors.
+
+73
+00:05:08,600 --> 00:05:12,598
+Error will processing route posts posts is
+not defined.
+
+74
+00:05:12,598 --> 00:05:16,099
+Post.js line 3.
+
+75
+00:05:16,099 --> 00:05:18,877
+[SOUND] Oh,
+
+76
+00:05:18,877 --> 00:05:26,602
+I'm editing the wrong file.
+
+77
+00:05:26,602 --> 00:05:28,500
+Here I edited the post.js file.
+
+78
+00:05:28,500 --> 00:05:32,102
+I should have been editing the posts.js
+file.
+
+79
+00:05:32,102 --> 00:05:36,968
+Let's copy this over to posts.js.
+
+80
+00:05:36,968 --> 00:05:43,861
+We'll save it, refresh.
+
+81
+00:05:45,570 --> 00:05:46,710
+There we go.
+
+82
+00:05:46,710 --> 00:05:50,300
+And you can see there's no posts being
+displayed because we
+
+83
+00:05:50,300 --> 00:05:54,900
+haven't actually saved any into our new
+Ember data local storage data store.
+
+84
+00:05:56,260 --> 00:05:58,485
+Now, let's update our recent comments
+route.
+
+85
+00:05:58,485 --> 00:06:04,545
+[SOUND] Once again, this will return
+
+86
+00:06:04,545 --> 00:06:13,040
+all of the comments that we have in our
+data store.
+
+87
+00:06:13,040 --> 00:06:14,218
+We'll refresh.
+
+88
+00:06:14,218 --> 00:06:18,820
+[BLANK_AUDIO]
+
+89
+00:06:18,820 --> 00:06:21,070
+We'll click recent comments.
+
+90
+00:06:21,070 --> 00:06:23,440
+And there are no recent comments.
+
+91
+00:06:23,440 --> 00:06:26,236
+Now, let's work on displaying a single
+post.
+
+92
+00:06:26,236 --> 00:06:34,165
+[SOUND] In a route, we'll make one change
+to how we retrieve them.
+
+93
+00:06:34,165 --> 00:06:40,706
+[SOUND] It's almost the same as retrieving
+every post object.
+
+94
+00:06:40,706 --> 00:06:43,900
+But here we've passed in a second
+argument.
+
+95
+00:06:43,900 --> 00:06:46,040
+The ID of the post that we want to
+retrieve.
+
+96
+00:06:47,640 --> 00:06:49,914
+That will return just that one single
+post.
+
+97
+00:06:49,914 --> 00:06:52,050
+[BLANK_AUDIO]
+
+98
+00:06:52,050 --> 00:06:53,470
+Let's go back here.
+
+99
+00:06:53,470 --> 00:06:54,060
+Refresh.
+
+100
+00:06:56,550 --> 00:06:58,490
+And it all seems to work.
+
+101
+00:06:58,490 --> 00:07:02,050
+In the next video, we'll see how to create
+new posts so
+
+102
+00:07:02,050 --> 00:07:04,350
+that we can see more of the results of our
+work
+

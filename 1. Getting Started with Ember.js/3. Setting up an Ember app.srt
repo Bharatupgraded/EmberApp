@@ -1,0 +1,723 @@
+1
+00:00:01,010 --> 00:00:04,320
+Before we can start building our blogging
+app, we'll need to create our
+
+2
+00:00:04,320 --> 00:00:09,130
+directory structure, gather our
+dependencies, and boot our Ember app.
+
+3
+00:00:10,600 --> 00:00:12,840
+To make it easier for you to get started,
+
+4
+00:00:12,840 --> 00:00:17,110
+I've set up a work space that comes with
+all of the files and folders you'll need.
+
+5
+00:00:17,110 --> 00:00:19,120
+If you just wanna use the work space,
+
+6
+00:00:19,120 --> 00:00:23,140
+click the Launch work spaces button next
+to this video.
+
+7
+00:00:23,140 --> 00:00:25,960
+I'd still recommend watching the rest of
+this video though, so
+
+8
+00:00:25,960 --> 00:00:28,690
+that you can understand what everything is
+for.
+
+9
+00:00:28,690 --> 00:00:31,500
+Let's start by setting up our project
+directory.
+
+10
+00:00:31,500 --> 00:00:33,560
+We'll make a new folder called blogger.
+
+11
+00:00:34,580 --> 00:00:38,350
+I'm going to put it in my home directory,
+but you can put it anywhere you like.
+
+12
+00:00:38,350 --> 00:00:39,425
+If you're using Windows or
+
+13
+00:00:39,425 --> 00:00:43,160
+Linux it might look a little different,
+but you can follow along just the same.
+
+14
+00:00:44,170 --> 00:00:49,625
+In this blogger folder we'll make
+
+15
+00:00:49,625 --> 00:00:55,079
+folders for CSS, libs, routes,
+
+16
+00:00:55,079 --> 00:01:02,650
+models, controllers, and, templates.
+
+17
+00:01:02,650 --> 00:01:08,100
+Than we'll open this whole folder up in
+the Sublime text editor.
+
+18
+00:01:08,100 --> 00:01:14,692
+Now, we'll also make a file called
+index.html and
+
+19
+00:01:14,692 --> 00:01:17,990
+in it we'll make a bare bones HTML
+document.
+
+20
+00:01:19,620 --> 00:01:21,989
+Now, we'll start gathering our
+dependencies.
+
+21
+00:01:23,380 --> 00:01:28,660
+Ember uses semantic versioning to help you
+identify the best version to use.
+
+22
+00:01:28,660 --> 00:01:31,320
+Here's how semantic versioning works.
+
+23
+00:01:31,320 --> 00:01:37,490
+Right now the latest version of Ember JS
+is 1.7.0.
+
+24
+00:01:37,490 --> 00:01:42,180
+Let's say the Ember team finds a small bug
+and wants to release a new version.
+
+25
+00:01:42,180 --> 00:01:45,360
+As long as all they do is fix that bug and
+
+26
+00:01:45,360 --> 00:01:49,530
+don't make any changes that could break an
+app that depends on Ember,
+
+27
+00:01:49,530 --> 00:01:54,770
+they'll release the new version as 1.7.1,
+incrementing the last of
+
+28
+00:01:54,770 --> 00:01:58,620
+the three version numbers, which is called
+the patch version.
+
+29
+00:01:58,620 --> 00:02:02,070
+Now let's say that the Ember team has been
+hard at work.
+
+30
+00:02:02,070 --> 00:02:06,450
+And they're ready to release a new version
+with a bunch of awesome features.
+
+31
+00:02:06,450 --> 00:02:11,140
+So long as none of these features make
+changes that can break an app that's built
+
+32
+00:02:11,140 --> 00:02:18,520
+with Ember 1.7.something, they'll release
+the new version as 1.8.0.
+
+33
+00:02:18,520 --> 00:02:21,660
+Incrementing the middle of the three
+version numbers,
+
+34
+00:02:21,660 --> 00:02:27,330
+which is called the minor version, and
+resetting the patch version down to zero.
+
+35
+00:02:27,330 --> 00:02:30,500
+At some point, the Ember team will have
+eventually built some
+
+36
+00:02:30,500 --> 00:02:33,690
+awesome new stuff that changes how things
+work.
+
+37
+00:02:33,690 --> 00:02:36,460
+And they may also want to remove some
+functionality that they
+
+38
+00:02:36,460 --> 00:02:38,800
+discover makes Ember slower.
+
+39
+00:02:38,800 --> 00:02:42,200
+At this point when they release a version
+that breaks backwards
+
+40
+00:02:42,200 --> 00:02:46,960
+compatibility they'll change the version
+to 2.0.0.
+
+41
+00:02:46,960 --> 00:02:50,490
+Incrementing the first of the three
+version numbers which is
+
+42
+00:02:50,490 --> 00:02:55,410
+called major version and resetting the
+minor and patch versions to zero.
+
+43
+00:02:57,010 --> 00:03:02,570
+I'm going to be using Ember 1.7.0 since
+it's the most recent version, but
+
+44
+00:03:02,570 --> 00:03:07,960
+you should use whatever the latest version
+of Ember 1.something.something is.
+
+45
+00:03:07,960 --> 00:03:13,340
+In other words, the latest version so long
+as it's less than 2.0.0.
+
+46
+00:03:13,340 --> 00:03:19,370
+By sticking to a 1.something release, you
+can be sure that as you follow along,
+
+47
+00:03:19,370 --> 00:03:21,620
+you won't run into anything that's
+incompatible.
+
+48
+00:03:23,310 --> 00:03:28,620
+>> To download Ember, go to emberjs.com,
+click on Builds,
+
+49
+00:03:30,180 --> 00:03:34,170
+then Release, and then the big Download
+button.
+
+50
+00:03:36,340 --> 00:03:39,980
+If 2.0.0 or later has been released and
+you need to find
+
+51
+00:03:39,980 --> 00:03:45,000
+the latest 1.something build, you might
+need to go to Tagged releases to find it.
+
+52
+00:03:46,720 --> 00:03:50,550
+The other thing we need from the Ember
+website is the handlebars library.
+
+53
+00:03:51,970 --> 00:03:54,700
+Back on the home page there's a handlebars
+link.
+
+54
+00:03:55,750 --> 00:03:58,090
+Click it to download the handlebars.
+
+55
+00:03:58,090 --> 00:04:00,550
+We'll be using version 1.3.0.
+
+56
+00:04:00,550 --> 00:04:04,220
+So, if you're watching this video a while
+after it was made,
+
+57
+00:04:04,220 --> 00:04:07,850
+make sure you're using the latest
+1.something version.
+
+58
+00:04:07,850 --> 00:04:12,540
+Ember relies on jQuery, so we need to
+download jQuery as well.
+
+59
+00:04:12,540 --> 00:04:16,990
+From jquery.com, we'll click the big
+Download button.
+
+60
+00:04:16,990 --> 00:04:21,990
+And download the latest, uncompressed
+development 1.something version.
+
+61
+00:04:23,280 --> 00:04:26,060
+Finally, I made a little library that
+we'll use to
+
+62
+00:04:26,060 --> 00:04:30,680
+load our handlebars templates, called
+Ember Handlebars Loader.
+
+63
+00:04:30,680 --> 00:04:35,170
+You can download it from the link in the
+teacher's notes.
+
+64
+00:04:35,170 --> 00:04:37,170
+Here, it'll bring us to the repository.
+
+65
+00:04:38,400 --> 00:04:46,240
+Click the Library > Raw > File > Save Page
+As.
+
+66
+00:04:48,780 --> 00:04:53,030
+Now, let's copy all of these JavaScript
+libraries to our lib folder.
+
+67
+00:04:56,655 --> 00:05:02,311
+Then in our index.html file we'll
+
+68
+00:05:02,311 --> 00:05:07,974
+add script tags to put them in here.
+
+69
+00:05:07,974 --> 00:05:16,799
+[SOUND]
+In addition to these
+
+70
+00:05:16,799 --> 00:05:25,224
+JavaScript libraries,
+
+71
+00:05:25,224 --> 00:05:30,438
+we'll also use
+
+72
+00:05:30,438 --> 00:05:38,863
+the Bootstrap framework
+
+73
+00:05:38,863 --> 00:05:44,887
+to style our app.
+
+74
+00:05:44,887 --> 00:05:47,340
+I'm going to be using version 3.2.0.
+
+75
+00:05:47,340 --> 00:05:51,565
+So once again, make sure you use the
+latest 3.something.
+
+76
+00:05:52,620 --> 00:05:57,490
+We'll copy the bootstrap CSS into our CSS
+Folder.
+
+77
+00:06:00,230 --> 00:06:05,895
+And then in our index.html, we'll add a
+link for it.
+
+78
+00:06:05,895 --> 00:06:10,473
+[SOUND] Let's open our index.html page in
+
+79
+00:06:10,473 --> 00:06:16,109
+the browser to make sure there aren't any
+errors.
+
+80
+00:06:16,109 --> 00:06:20,028
+We'll pop open the JavaScript console.
+
+81
+00:06:20,028 --> 00:06:26,660
+If we've mistyped something, you'll see an
+error like I have here.
+
+82
+00:06:26,660 --> 00:06:28,760
+It says, file not found.
+
+83
+00:06:28,760 --> 00:06:31,381
+There I say, v.1.3.0.
+
+84
+00:06:31,381 --> 00:06:35,758
+It should just be v1.3.0.
+
+85
+00:06:35,758 --> 00:06:40,640
+And ember1.7.0 should be just ember.
+
+86
+00:06:43,380 --> 00:06:47,100
+Now, if I refresh the page, there we go.
+
+87
+00:06:47,100 --> 00:06:48,670
+No errors.
+
+88
+00:06:48,670 --> 00:06:51,970
+Now, the final thing we need to do before
+we get started is to
+
+89
+00:06:51,970 --> 00:06:53,452
+create our actual Ember app.
+
+90
+00:06:54,730 --> 00:06:57,814
+We make a file called blogger.js.
+
+91
+00:06:59,160 --> 00:07:06,760
+And in it, we will write blogger equals
+ember.application.create.
+
+92
+00:07:08,390 --> 00:07:13,160
+Back in our index.html, we will add a
+script tag after our dependencies.
+
+93
+00:07:19,860 --> 00:07:22,160
+Then we will go back to the browser.
+
+94
+00:07:22,160 --> 00:07:22,918
+And refresh the page.
+
+95
+00:07:22,918 --> 00:07:25,304
+[BLANK_AUDIO]
+
+96
+00:07:25,304 --> 00:07:27,032
+If everything has gone right and
+
+97
+00:07:27,032 --> 00:07:30,900
+your Ember app has booted, you'll see a
+blank page like this.
+
+98
+00:07:30,900 --> 00:07:35,810
+But in your JavaScript console, you'll see
+something that looks like this.
+
+99
+00:07:35,810 --> 00:07:39,090
+These debug messages are printed by Ember
+when it boots.
+
+100
+00:07:39,090 --> 00:07:42,270
+And it means that your shiny, brand new
+Ember app is now ready for
+
+101
+00:07:42,270 --> 00:07:43,360
+you to start building on.
+
+102
+00:07:44,400 --> 00:07:47,470
+The last thing we need to do before
+starting is to serve our
+
+103
+00:07:47,470 --> 00:07:49,510
+app with a web server.
+
+104
+00:07:49,510 --> 00:07:53,650
+This is necessary to load the handlebars
+template starting in the next lesson.
+
+105
+00:07:53,650 --> 00:07:57,094
+There are a lot of ways to start a server
+but
+
+106
+00:07:57,094 --> 00:08:03,506
+the easiest is to download Mongoose from
+cesanta.com/mongoose.shtml.
+
+107
+00:08:03,506 --> 00:08:10,072
+[BLANK_AUDIO]
+
+108
+00:08:10,072 --> 00:08:13,817
+Then we can copy it into our project
+folder.
+
+109
+00:08:13,817 --> 00:08:17,905
+[BLANK_AUDIO]
+
+110
+00:08:17,905 --> 00:08:19,500
+And just double-click it to open it.
+
+111
+00:08:20,970 --> 00:08:24,220
+I'm gonna use the Cmd+Alt+J keyboard
+shortcut to look,
+
+112
+00:08:24,220 --> 00:08:28,200
+to open my JavaScript console, and there
+we go.
+
+113
+00:08:28,200 --> 00:08:28,940
+It's open in here.
+
+114
+00:08:28,940 --> 00:08:33,910
+If you see an error like this, where is
+says something about bootstrap.css.map,
+
+115
+00:08:33,910 --> 00:08:40,250
+you can just go to your CSS folder, open
+Bootstrap.
+
+116
+00:08:40,250 --> 00:08:44,200
+Go all the way to the end and then delete
+this line.
+
+117
+00:08:45,610 --> 00:08:50,800
+Save the file, go back here, click
+Refresh, and it'll go away.
+
+118
+00:08:52,040 --> 00:08:54,620
+If you're on a Mac and are comfortable in
+the terminal,
+
+119
+00:08:54,620 --> 00:08:57,730
+you can also start a web server without
+downloading anything at all.
+
+120
+00:08:58,980 --> 00:08:59,980
+Just open terminal.
+
+121
+00:08:59,980 --> 00:09:05,949
+Change directories to your project folder
+and
+
+122
+00:09:05,949 --> 00:09:10,551
+run python -m SimpleHTTPServer.
+
+123
+00:09:10,551 --> 00:09:11,844
+Then in
+
+124
+00:09:11,844 --> 00:09:20,900
+your browser visit 0.0.0.0:8000.
+
+125
+00:09:20,900 --> 00:09:26,070
+Once again, if we
+
+126
+00:09:26,070 --> 00:09:30,020
+open the JavaScript console, we can see
+that our app is running.
+
+127
+00:09:30,020 --> 00:09:33,140
+Now, with that, we're ready to start
+building our Ember app.
+
+128
+00:09:35,000 --> 00:09:37,875
+The last thing we need to do before
+starting is to
+
+129
+00:09:37,875 --> 00:09:40,300
+serve our app with a web server.
+
+130
+00:09:40,300 --> 00:09:45,130
+This is necessary to load the handlebars
+templates starting in the next lesson.
+
+131
+00:09:45,130 --> 00:09:47,440
+There are a lot of ways to start a server,
+but
+
+132
+00:09:47,440 --> 00:09:51,780
+the easiest is to download Mongoose from
+the link in the teacher's notes.
+
+133
+00:09:51,780 --> 00:09:54,520
+Copy it into your project directory, then
+open it up.
+
+134
+00:09:56,020 --> 00:09:58,820
+If you're on Mac and are comfortable on
+the terminal,
+
+135
+00:09:58,820 --> 00:10:02,800
+you can also start a web server without
+downloading anything at all.
+
+136
+00:10:02,800 --> 00:10:07,520
+Just open terminal, changer directories
+into your project directory and
+
+137
+00:10:07,520 --> 00:10:12,400
+run python -m simplehttpserver.
+
+138
+00:10:12,400 --> 00:10:18,615
+Then in your browser, visit 0.0.0.0:8000.
+
+139
+00:10:19,760 --> 00:10:22,300
+And with that, we are ready to start
+building our Ember wrap.
+
+140
+00:10:23,690 --> 00:10:28,250
+As you go through these videos, I strongly
+suggest you take the following approach.
+
+141
+00:10:29,970 --> 00:10:32,700
+First, simply watch the video.
+
+142
+00:10:32,700 --> 00:10:34,880
+Don't bother taking notes or following
+along,
+
+143
+00:10:34,880 --> 00:10:38,910
+just focus on getting the high level
+understanding of the concept being taught.
+
+144
+00:10:40,160 --> 00:10:46,390
+Second, rewatch the video, pausing as it
+goes and writing the code along with it.
+
+145
+00:10:46,390 --> 00:10:49,930
+This step will cement the nitty gritty of
+how the code works and
+
+146
+00:10:49,930 --> 00:10:51,680
+start to ingrain your understanding.
+
+147
+00:10:52,830 --> 00:10:55,190
+Third, create a separate project.
+
+148
+00:10:55,190 --> 00:10:58,240
+And apply what I've shown you to your own
+project.
+
+149
+00:10:58,240 --> 00:11:02,100
+For example, maybe make an app for an
+animal shelter that shows
+
+150
+00:11:02,100 --> 00:11:06,030
+information about the shelter and a list
+of animals available for adoption.
+
+151
+00:11:07,170 --> 00:11:11,800
+Take the ideas I cover in the video, and
+then apply them to your own project.
+
+152
+00:11:11,800 --> 00:11:14,370
+It's this step where your deepest learning
+will happen.
+
+153
+00:11:16,140 --> 00:11:21,000
+Start with this process now, rewatch this
+video, following along.
+
+154
+00:11:21,000 --> 00:11:22,712
+And then, make the beginnings of your own
+app.
+
+155
+00:11:22,712 --> 00:11:24,649
+[BLANK_AUDIO]
+

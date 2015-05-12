@@ -1,0 +1,288 @@
+1
+00:00:00,240 --> 00:00:04,370
+The last concept we'll learn about the
+router and templates is nesting.
+
+2
+00:00:04,370 --> 00:00:06,990
+What I wanna do is instead of showing the
+phone and
+
+3
+00:00:06,990 --> 00:00:13,430
+email address on the contact page, replace
+these with links for phone and email.
+
+4
+00:00:13,430 --> 00:00:17,060
+And if I click the phone link, it shows
+the number over here.
+
+5
+00:00:17,060 --> 00:00:20,690
+And if click the email link, it shows the
+email address over here.
+
+6
+00:00:21,690 --> 00:00:24,997
+Here's the completed feature, so you can
+see what I'm talking about.
+
+7
+00:00:24,997 --> 00:00:29,541
+[BLANK_AUDIO]
+
+8
+00:00:29,541 --> 00:00:33,220
+We'll start out by just building a new
+page for phone.
+
+9
+00:00:33,220 --> 00:00:34,030
+Make a route.
+
+10
+00:00:34,030 --> 00:00:39,006
+[SOUND] And a template.
+
+11
+00:00:39,006 --> 00:00:45,045
+[SOUND] And then of course,
+
+12
+00:00:45,045 --> 00:00:51,365
+we'll load the template.
+
+13
+00:00:51,365 --> 00:00:55,813
+And we'll change our contact.hps template
+to link to
+
+14
+00:00:55,813 --> 00:00:59,110
+the phone page in our future email page.
+
+15
+00:01:02,420 --> 00:01:04,100
+Now, let's check this out.
+
+16
+00:01:05,510 --> 00:01:06,520
+I'll refresh here.
+
+17
+00:01:07,595 --> 00:01:08,662
+oh.
+
+18
+00:01:08,662 --> 00:01:13,530
+Oh, we can't link to the route email until
+we actually make it.
+
+19
+00:01:13,530 --> 00:01:16,610
+Let's go back.
+
+20
+00:01:16,610 --> 00:01:17,549
+We'll add this later.
+
+21
+00:01:17,549 --> 00:01:24,529
+[SOUND]
+There we go.
+
+22
+00:01:24,529 --> 00:01:27,895
+We'll click phone and there it is.
+
+23
+00:01:27,895 --> 00:01:29,690
+Nothing new there.
+
+24
+00:01:29,690 --> 00:01:30,858
+You understand this by now.
+
+25
+00:01:30,858 --> 00:01:34,050
+But watch this.
+
+26
+00:01:34,050 --> 00:01:40,213
+Back here, we'll change the router, take
+this and
+
+27
+00:01:40,213 --> 00:01:48,350
+we'll remove it for just a moment and then
+we'll add this function.
+
+28
+00:01:50,130 --> 00:01:52,070
+This is what we call a nested route.
+
+29
+00:01:52,070 --> 00:01:56,618
+The last thing we need to do is in our
+contact page,
+
+30
+00:01:56,618 --> 00:02:00,260
+we're gonna add a new handlebars helper.
+
+31
+00:02:02,820 --> 00:02:09,300
+Now, if we go back to our app, refresh the
+page.
+
+32
+00:02:11,200 --> 00:02:15,690
+If we click phone, it shows up here at the
+bottom of the screen.
+
+33
+00:02:16,990 --> 00:02:21,625
+That's right where our outlet helper is
+gonna back up a second.
+
+34
+00:02:21,625 --> 00:02:29,209
+[SOUND] And we'll add the outlet handle
+
+35
+00:02:29,209 --> 00:02:36,795
+bars helper to our contact template.
+
+36
+00:02:36,795 --> 00:02:42,370
+Now, if we go back to the app, refresh the
+page.
+
+37
+00:02:44,260 --> 00:02:45,860
+And we click phone,
+
+38
+00:02:45,860 --> 00:02:50,350
+the phone template gets rendered right
+where that outlet helper is.
+
+39
+00:02:50,350 --> 00:02:52,760
+Anywhere that you add an outlet helper,
+
+40
+00:02:52,760 --> 00:02:55,310
+a nested route will get rendered into that
+spot.
+
+41
+00:02:57,810 --> 00:03:01,826
+Finally, we can easily add two columns
+using Bootstrap styles to
+
+42
+00:03:01,826 --> 00:03:04,026
+our page to get the desired layout.
+
+43
+00:03:04,026 --> 00:03:14,026
+[BLANK_AUDIO]
+
+44
+00:03:25,579 --> 00:03:26,760
+And let's check it out.
+
+45
+00:03:30,130 --> 00:03:31,610
+There it is.
+
+46
+00:03:31,610 --> 00:03:34,240
+See how simple it is to make a nested
+route?
+
+47
+00:03:34,240 --> 00:03:36,390
+That's one of the great things about
+Ember.
+
+48
+00:03:36,390 --> 00:03:40,310
+It makes it really easy to create complex
+use interfaces.
+
+49
+00:03:40,310 --> 00:03:44,160
+And you can even nest routes within other
+nested routes.
+
+50
+00:03:44,160 --> 00:03:46,438
+Let's add that nested route for email now.
+
+51
+00:03:46,438 --> 00:03:55,850
+[BLANK_AUDIO]
+
+52
+00:03:55,850 --> 00:03:57,490
+Create our email template.
+
+53
+00:04:01,410 --> 00:04:02,465
+We'll load the template.
+
+54
+00:04:02,465 --> 00:04:10,585
+Gonna make it a little easier to read.
+
+55
+00:04:10,585 --> 00:04:18,123
+[SOUND] And now, if we go back to our app,
+
+56
+00:04:18,123 --> 00:04:23,841
+we need to add the email link.
+
+57
+00:04:23,841 --> 00:04:34,587
+[BLANK_AUDIO]
+
+58
+00:04:34,587 --> 00:04:36,620
+Refresh.
+
+59
+00:04:36,620 --> 00:04:38,220
+Click email.
+
+60
+00:04:38,220 --> 00:04:38,730
+There we go.
+
+61
+00:04:40,620 --> 00:04:41,230
+Really easy.
+
+62
+00:04:42,750 --> 00:04:46,840
+And the email template gets loaded into
+the outlet helper location as well.
+
+63
+00:04:49,400 --> 00:04:53,800
+As a gentle reminder, remember re-watch
+this video and follow along.
+
+64
+00:04:53,800 --> 00:04:56,290
+As well as build out some nested routes on
+your own app.
+
+65
+00:04:57,530 --> 00:05:00,690
+I'm gonna stop reminding you now, and just
+assume you'll do so from now on.
+

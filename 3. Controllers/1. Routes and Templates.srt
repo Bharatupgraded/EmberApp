@@ -1,0 +1,221 @@
+1
+00:00:00,068 --> 00:00:03,579
+[MUSIC]
+
+2
+00:00:03,579 --> 00:00:06,921
+Let's add some interactivity to our app
+and
+
+3
+00:00:06,921 --> 00:00:12,010
+work on a feature where you can click a
+button to trigger a pop-up.
+
+4
+00:00:12,010 --> 00:00:14,670
+As a reminder, we've been working with
+templates,
+
+5
+00:00:14,670 --> 00:00:17,150
+which define how our application looks.
+
+6
+00:00:17,150 --> 00:00:22,290
+Now, we'll start working with controllers,
+which define how our application behaves.
+
+7
+00:00:22,290 --> 00:00:25,505
+We'll start off by writing some HTML in
+our template.
+
+8
+00:00:25,505 --> 00:00:30,800
+[SOUND] In Ember, if we want some kind of
+action to be
+
+9
+00:00:30,800 --> 00:00:37,484
+triggered by clicking an element, such as
+opening a pop-up,
+
+10
+00:00:37,484 --> 00:00:41,536
+we use the action handlebars helper.
+
+11
+00:00:41,536 --> 00:00:47,510
+Now, we define the action in the
+controller associated with this root.
+
+12
+00:00:47,510 --> 00:00:51,660
+Let's make a new file called
+controllers/about.js.
+
+13
+00:00:51,660 --> 00:00:59,380
+And in it we'll write our controller.
+
+14
+00:00:59,380 --> 00:01:03,245
+We define controllers as properties on our
+main ember application.
+
+15
+00:01:03,245 --> 00:01:06,380
+Blogger.AboutController.
+
+16
+00:01:06,380 --> 00:01:09,750
+They follow a naming convention in which
+the controller name must be
+
+17
+00:01:09,750 --> 00:01:14,790
+the capitalized version of the route name
+with Controller added to the end.
+
+18
+00:01:14,790 --> 00:01:21,557
+[BLANK_AUDIO]
+
+19
+00:01:21,557 --> 00:01:27,810
+Ember.Controller.extend creates a sub
+class of the Ember.Controller class.
+
+20
+00:01:27,810 --> 00:01:31,070
+You get all the default behavior of an
+Ember Controller plus any
+
+21
+00:01:31,070 --> 00:01:32,680
+additional behaviors you define.
+
+22
+00:01:32,680 --> 00:01:41,322
+[BLANK_AUDIO]
+
+23
+00:01:41,322 --> 00:01:44,789
+Here, we're defining the showRealName
+action,
+
+24
+00:01:44,789 --> 00:01:47,130
+which is going to pop up our alert.
+
+25
+00:01:48,600 --> 00:01:50,690
+Let's check out the results of our work in
+the browser.
+
+26
+00:01:53,670 --> 00:01:57,340
+Here we have the error, nothing handled
+the action showRealName.
+
+27
+00:01:57,340 --> 00:02:00,930
+That means that, somehow, we didn't define
+our action properly.
+
+28
+00:02:00,930 --> 00:02:02,190
+Let's take a look at our code again.
+
+29
+00:02:03,990 --> 00:02:06,860
+Well, here's our action defined on our
+controller.
+
+30
+00:02:07,880 --> 00:02:09,890
+It's the same as this action.
+
+31
+00:02:09,890 --> 00:02:14,475
+What we forgot to do was to add our
+controller to our
+
+32
+00:02:14,475 --> 00:02:24,210
+index.html in the JavaScript script tag.
+
+33
+00:02:24,210 --> 00:02:28,360
+Now if we refresh our page, there we go.
+
+34
+00:02:28,360 --> 00:02:30,263
+It works.
+[BLANK_AUDIO]
+
+35
+00:02:30,263 --> 00:02:33,911
+Let's add an action to the contact page,
+that lets users submit a secret message.
+
+36
+00:02:33,911 --> 00:02:43,911
+[BLANK_AUDIO]
+
+37
+00:02:54,378 --> 00:02:56,611
+And then we'll create a controller to
+handle the action.
+
+38
+00:02:56,611 --> 00:03:00,777
+[BLANK_AUDIO]
+
+39
+00:03:00,777 --> 00:03:06,566
+[NOISE] For now, we won't actually
+
+40
+00:03:06,566 --> 00:03:12,354
+do anything with the message since
+
+41
+00:03:12,354 --> 00:03:18,341
+we don't really have like a backend
+
+42
+00:03:18,341 --> 00:03:23,940
+server or anything to handle it.
+
+43
+00:03:23,940 --> 00:03:25,634
+Okay.
+
+44
+00:03:25,634 --> 00:03:29,586
+And then let's not forget to add this
+index.html.
+
+45
+00:03:29,586 --> 00:03:36,174
+[BLANK_AUDIO]
+
+46
+00:03:36,174 --> 00:03:38,586
+And then let's take a look on our page.
+
+47
+00:03:38,586 --> 00:03:45,160
+[BLANK_AUDIO]
+
+48
+00:03:45,160 --> 00:03:47,270
+Okay, there we go.
+
+49
+00:03:47,270 --> 00:03:50,490
+Now you know how to define actions and
+ember controllers.
+

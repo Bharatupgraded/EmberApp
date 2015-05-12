@@ -1,0 +1,132 @@
+1
+00:00:00,820 --> 00:00:03,520
+There's one annoying thing I wanna fix
+before we move on.
+
+2
+00:00:04,860 --> 00:00:06,590
+If we load up our app.
+
+3
+00:00:08,570 --> 00:00:09,800
+Just the homepage here.
+
+4
+00:00:11,710 --> 00:00:13,750
+We just get a blank page.
+
+5
+00:00:13,750 --> 00:00:14,750
+Here's how we change that.
+
+6
+00:00:17,380 --> 00:00:18,390
+We'll open our router.
+
+7
+00:00:19,530 --> 00:00:26,769
+And then, since I want this to be the
+homepage, I'll add path /.
+
+8
+00:00:26,769 --> 00:00:27,677
+Save it.
+
+9
+00:00:27,677 --> 00:00:30,612
+Then I'll refresh.
+
+10
+00:00:30,612 --> 00:00:34,010
+And there we go.
+
+11
+00:00:34,010 --> 00:00:34,980
+So what's going on here?
+
+12
+00:00:36,470 --> 00:00:43,770
+By default, the path to a page is the same
+as the name of the entry in the router.
+
+13
+00:00:43,770 --> 00:00:47,090
+So for example, for our about route.
+
+14
+00:00:48,320 --> 00:00:54,300
+If we go here, the about path loads the
+about route.
+
+15
+00:00:55,640 --> 00:01:00,230
+But we can override that by providing a
+path explicitly.
+
+16
+00:01:00,230 --> 00:01:03,790
+Here, we've provided the path to the
+homepage.
+
+17
+00:01:03,790 --> 00:01:07,125
+If we wanted to, we could overwrite it for
+other entries too.
+
+18
+00:01:07,125 --> 00:01:14,678
+[SOUND] So now, if we go to about-us,
+
+19
+00:01:14,678 --> 00:01:18,586
+that won't work.
+
+20
+00:01:18,586 --> 00:01:21,560
+But if we add about-us, it will work.
+
+21
+00:01:21,560 --> 00:01:25,004
+It goes to the about route.
+
+22
+00:01:25,004 --> 00:01:31,760
+Or we could say something like path
+get-in-touch.
+
+23
+00:01:31,760 --> 00:01:36,560
+Generally though, it's a good idea to pick
+names for your routes.
+
+24
+00:01:36,560 --> 00:01:39,330
+It's the same as the path you'd like in
+the URL.
+
+25
+00:01:39,330 --> 00:01:42,240
+So that it's easy to find things in your
+code.
+
+26
+00:01:42,240 --> 00:01:44,660
+But for the root path, or
+
+27
+00:01:44,660 --> 00:01:48,650
+other special situations, you now know how
+to override the default.
+
+28
+00:01:48,650 --> 00:01:50,380
+Except for that root path.
+
+29
+00:01:50,380 --> 00:01:52,292
+Let's switch it back to the defaults.
+
+30
+00:01:52,292 --> 00:01:57,779
+[BLANK_AUDIO]
+

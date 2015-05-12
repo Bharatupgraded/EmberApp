@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist xmlns="http://xspf.org/ns/0/" xmlns:vlc="http://www.videolan.org/vlc/playlist/ns/0/" version="1">
+	<title>Playlist</title>
+	<trackList>
+		<track>
+			<location>file:///home/mac/Downloads/Torrent/Ember.js%20%28720p-Sub%29%20%5BTeamTreeHouse%5D%20%5BTonyStark%5D/1.%20Getting%20Started%20with%20Ember.js/1.%20Introduction%20to%20Ember.mp4</location>
+			<duration>327401</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>0</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mac/Downloads/Torrent/Ember.js%20%28720p-Sub%29%20%5BTeamTreeHouse%5D%20%5BTonyStark%5D/1.%20Getting%20Started%20with%20Ember.js/2.%20Ember-flavored%20MVC.mp4</location>
+			<duration>138281</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>1</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mac/Downloads/Torrent/Ember.js%20%28720p-Sub%29%20%5BTeamTreeHouse%5D%20%5BTonyStark%5D/1.%20Getting%20Started%20with%20Ember.js/3.%20Setting%20up%20an%20Ember%20app.mp4</location>
+			<duration>684650</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>2</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mac/Downloads/Torrent/Ember.js%20%28720p-Sub%29%20%5BTeamTreeHouse%5D%20%5BTonyStark%5D/2.%20Routes%20and%20Templates/1.%20Basic%20Routes%20and%20Templates.mp4</location>
+			<duration>409685</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>3</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mac/Downloads/Torrent/Ember.js%20%28720p-Sub%29%20%5BTeamTreeHouse%5D%20%5BTonyStark%5D/2.%20Routes%20and%20Templates/2.%20Customizing%20URLs.mp4</location>
+			<duration>117823</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>4</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mac/Downloads/Torrent/Ember.js%20%28720p-Sub%29%20%5BTeamTreeHouse%5D%20%5BTonyStark%5D/2.%20Routes%20and%20Templates/3.%20Nested%20Routes.mp4</location>
+			<duration>302313</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>5</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mac/Downloads/Torrent/Ember.js%20%28720p-Sub%29%20%5BTeamTreeHouse%5D%20%5BTonyStark%5D/2.%20Routes%20and%20Templates/4.%20The%20Application%20Template%2C%20Summary.mp4</location>
+			<duration>179946</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>6</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mac/Downloads/Torrent/Ember.js%20%28720p-Sub%29%20%5BTeamTreeHouse%5D%20%5BTonyStark%5D/3.%20Controllers/1.%20Routes%20and%20Templates.mp4</location>
+			<duration>231530</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>7</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mac/Downloads/Torrent/Ember.js%20%28720p-Sub%29%20%5BTeamTreeHouse%5D%20%5BTonyStark%5D/3.%20Controllers/2.%20Controller%20Properties.mp4</location>
+			<duration>410090</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>8</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mac/Downloads/Torrent/Ember.js%20%28720p-Sub%29%20%5BTeamTreeHouse%5D%20%5BTonyStark%5D/4.%20Models/1.%20%20Loading%20Arrays%20of%20JavaScript%20objects.mp4</location>
+			<duration>495978</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>9</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mac/Downloads/Torrent/Ember.js%20%28720p-Sub%29%20%5BTeamTreeHouse%5D%20%5BTonyStark%5D/4.%20Models/2.%20Loading%20Individual%20JavaScript%20Objects.mp4</location>
+			<duration>282196</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>10</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mac/Downloads/Torrent/Ember.js%20%28720p-Sub%29%20%5BTeamTreeHouse%5D%20%5BTonyStark%5D/4.%20Models/3.%20ObjectController%20and%20ArrayController.mp4</location>
+			<duration>486591</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>11</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mac/Downloads/Torrent/Ember.js%20%28720p-Sub%29%20%5BTeamTreeHouse%5D%20%5BTonyStark%5D/5.%20Ember%20Data/1.%20Ember%20Data%20with%20Local%20Storage.mp4</location>
+			<duration>425066</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>12</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mac/Downloads/Torrent/Ember.js%20%28720p-Sub%29%20%5BTeamTreeHouse%5D%20%5BTonyStark%5D/5.%20Ember%20Data/2.%20Creating%20and%20Deleting%20Records.mp4</location>
+			<duration>348800</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>13</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mac/Downloads/Torrent/Ember.js%20%28720p-Sub%29%20%5BTeamTreeHouse%5D%20%5BTonyStark%5D/5.%20Ember%20Data/3.%20Relationships%20in%20Ember%20Data.mp4</location>
+			<duration>444926</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>14</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mac/Downloads/Torrent/Ember.js%20%28720p-Sub%29%20%5BTeamTreeHouse%5D%20%5BTonyStark%5D/5.%20Ember%20Data/4.%20The%20REST%20Adapter.mp4</location>
+			<duration>397631</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>15</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mac/Downloads/Torrent/Ember.js%20%28720p-Sub%29%20%5BTeamTreeHouse%5D%20%5BTonyStark%5D/6.%20Ember.js%20Next%20Steps/1.%20Conclusion.mp4</location>
+			<duration>135743</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>16</vlc:id>
+			</extension>
+		</track>
+	</trackList>
+	<extension application="http://www.videolan.org/vlc/playlist/0">
+			<vlc:item tid="0"/>
+			<vlc:item tid="1"/>
+			<vlc:item tid="2"/>
+			<vlc:item tid="3"/>
+			<vlc:item tid="4"/>
+			<vlc:item tid="5"/>
+			<vlc:item tid="6"/>
+			<vlc:item tid="7"/>
+			<vlc:item tid="8"/>
+			<vlc:item tid="9"/>
+			<vlc:item tid="10"/>
+			<vlc:item tid="11"/>
+			<vlc:item tid="12"/>
+			<vlc:item tid="13"/>
+			<vlc:item tid="14"/>
+			<vlc:item tid="15"/>
+			<vlc:item tid="16"/>
+	</extension>
+</playlist>
